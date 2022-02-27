@@ -11,12 +11,16 @@ import CoreData
 class ToDoListViewController: UITableViewController {
     
     var itemArray = [Item]()
+    var selectedCategory : Category? {
+        didSet {
+            loadItems()
+        }
+    }
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     override func viewDidLoad() {
         super.viewDidLoad()
         print(NSHomeDirectory())
-        loadItems()
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -52,6 +56,7 @@ class ToDoListViewController: UITableViewController {
             newItem.title = textField.text!
             newItem.done = false
             self.itemArray.append(newItem)
+            newItem.parentCategory = self.selectedCategory
             self.tableView.reloadData()
             self.saveItems()
         }
@@ -73,7 +78,14 @@ class ToDoListViewController: UITableViewController {
         }
     }
     
-    func loadItems(with request: NSFetchRequest<Item> = Item.fetchRequest()) {
+    func loadItems(with request: NSFetchRequest<Item> = Item.fetchRequest(), predicate: NSPredicate? = nil) {
+        
+        let categoryPredicate = NSPredicate(format: "parentCategory.name MATHCES %@", selectedCategory!.name!)
+        if let additionalPredicate = predicate {
+            request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [categoryPredicate, additionalPredicate])
+        } else {
+            request.predicate = categoryPredicate
+        }
         do {
            itemArray = try context.fetch(request)
         } catch {
