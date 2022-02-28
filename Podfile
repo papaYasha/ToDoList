@@ -1,4 +1,4 @@
-platform :ios, '9.0'
+platform :ios, '14.5'
 
 target 'ToDoList' do
   use_frameworks!
@@ -6,5 +6,5 @@ target 'ToDoList' do
   # Pods for ToDoList
 	pod 'RealmSwift'
 	pod 'SwipeCellKit'
-pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
+pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git', => :branch => 'swift5'
 end
