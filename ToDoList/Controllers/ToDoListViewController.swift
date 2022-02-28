@@ -40,8 +40,17 @@ class ToDoListViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        toDoItems?[indexPath.row].done = !(toDoItems?[indexPath.row].done ?? true)
+        if let item = toDoItems?[indexPath.row] {
+            do {
+                try realm.write {
+                    item.done = !item.done
+                }
+            } catch {
+                print("Error saving done \(error)")
+            }
+        }
         tableView.deselectRow(at: indexPath, animated: true)
+        tableView.reloadData()
     }
     
     @IBAction func addButtnPressed(_ sender: UIBarButtonItem) {
