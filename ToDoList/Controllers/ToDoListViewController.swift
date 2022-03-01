@@ -13,6 +13,8 @@ class ToDoListViewController: SwipeTableViewController {
     
     @IBOutlet weak var searchBar: UISearchBar!
     
+    //MARK: - Properties
+    
     var toDoItems: Results<Item>?
     let realm = try! Realm()
     var selectedCategory : Category? {
@@ -20,6 +22,8 @@ class ToDoListViewController: SwipeTableViewController {
             loadItems()
         }
     }
+    
+    //MARK: - Override functions
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -88,6 +92,8 @@ class ToDoListViewController: SwipeTableViewController {
         }
     }
     
+    //MARK: - IBActions
+    
     @IBAction func addButtnPressed(_ sender: UIBarButtonItem) {
         var textField = UITextField()
         let alert = UIAlertController(title: "Add new ToDo Item", message: "", preferredStyle: .alert)
@@ -115,11 +121,14 @@ class ToDoListViewController: SwipeTableViewController {
         present(alert, animated: true, completion: nil)
     }
     
+    //MARK: - Methods
+    
     func loadItems() {
         toDoItems = selectedCategory?.items.sorted(byKeyPath: "title", ascending: true)
         tableView.reloadData()
     }
 }
+//MARK: - Extension search bar
 
 extension ToDoListViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
