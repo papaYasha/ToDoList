@@ -47,6 +47,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="searchBar" destination="Ie2-Ue-P3v" id="M1m-8c-tzX"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2GA-C7-hXa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -57,8 +60,8 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="y4q-iC-Q7y" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="qTW-SM-09N">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="qTW-SM-09N">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" systemColor="systemIndigoColor"/>
                         <textAttributes key="titleTextAttributes">
@@ -67,14 +70,14 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Muq-au-SlC" kind="relationship" relationship="rootViewController" id="ERJ-M0-W5Y"/>
+                        <segue destination="Muq-au-SlC" kind="relationship" relationship="rootViewController" id="RMe-AY-wN9"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tfc-hv-1Zk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="457.97101449275368" y="122.54464285714285"/>
         </scene>
-        <!--Category View Controller-->
+        <!--Category-->
         <scene sceneID="n34-uD-hmj">
             <objects>
                 <tableViewController id="Muq-au-SlC" customClass="CategoryViewController" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
@@ -97,7 +100,7 @@
                             <outlet property="delegate" destination="Muq-au-SlC" id="UZl-9o-f76"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="iV9-Cs-CYp">
+                    <navigationItem key="navigationItem" title="Category" id="iV9-Cs-CYp">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="nT2-T8-exV">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>

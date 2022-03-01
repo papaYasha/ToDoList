@@ -12,7 +12,7 @@ class SwipeTableViewController: UITableViewController, SwipeTableViewCellDelegat
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.rowHeight = 60
+        tableView.rowHeight = 80
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -25,9 +25,7 @@ class SwipeTableViewController: UITableViewController, SwipeTableViewCellDelegat
         guard orientation == .right else { return nil }
         let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
             self.updateModel(at: indexPath)
-     
-                tableView.reloadData()
-            }
+     }
         deleteAction.image = UIImage(named: "delete-icon")
         return [deleteAction]
     }
@@ -39,6 +37,6 @@ class SwipeTableViewController: UITableViewController, SwipeTableViewCellDelegat
     }
     
     func updateModel(at indexPath: IndexPath) {
-        
+        // update our data model
     }
 }

@@ -11,6 +11,8 @@ import ChameleonFramework
 
 class ToDoListViewController: SwipeTableViewController {
     
+    @IBOutlet weak var searchBar: UISearchBar!
+    
     var toDoItems: Results<Item>?
     let realm = try! Realm()
     var selectedCategory : Category? {
@@ -21,6 +23,21 @@ class ToDoListViewController: SwipeTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print(NSHomeDirectory())
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        if let colourHex = selectedCategory?.color {
+            title = selectedCategory!.name
+            guard let navBar = navigationController?.navigationBar else { fatalError("Navigation controller does not exist.") }
+            if let navBarColour = UIColor(hexString: colourHex) {
+                navBar.barTintColor = navBarColour
+                navBar.tintColor = ContrastColorOf(navBarColour, returnFlat: true)
+                navBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor : ContrastColorOf(navBarColour, returnFlat: true)]
+                searchBar.barTintColor = navBarColour
+            }
+        }
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -37,8 +54,6 @@ class ToDoListViewController: SwipeTableViewController {
                 cell.backgroundColor = color
                 cell.textLabel?.textColor = ContrastColorOf(color, returnFlat: true)
             }
-            
-            
             cell.accessoryType = item.done ? .checkmark : .none
         } else {
             cell.textLabel?.text = "No item added"
@@ -56,8 +71,8 @@ class ToDoListViewController: SwipeTableViewController {
                 print("Error saving done \(error)")
             }
         }
-        tableView.deselectRow(at: indexPath, animated: true)
         tableView.reloadData()
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     override func updateModel(at indexPath: IndexPath) {
@@ -91,7 +106,6 @@ class ToDoListViewController: SwipeTableViewController {
             }
             self.tableView.reloadData()
         }
-        
         alert.addTextField { alertTextField in
             alertTextField.placeholder = "Create new item"
             textField = alertTextField
@@ -115,7 +129,6 @@ extension ToDoListViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchBar.text?.count == 0 {
             loadItems()
-            
             DispatchQueue.main.async {
                 searchBar.resignFirstResponder()
             }
