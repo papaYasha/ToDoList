@@ -25,7 +25,7 @@
                             </connections>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="vXH-pM-bCl">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="vXH-pM-bCl" customClass="SwipeTableViewCell" customModule="SwipeCellKit">
                                 <rect key="frame" x="0.0" y="68.5" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vXH-pM-bCl" id="NRv-2E-x4c" customClass="SwipeTableViewCell" customModule="SwipeCellKit">
@@ -53,7 +53,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2GA-C7-hXa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1900" y="123"/>
+            <point key="canvasLocation" x="2142" y="123"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Lug-Sa-WN3">
@@ -75,7 +75,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tfc-hv-1Zk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="457.97101449275368" y="122.54464285714285"/>
+            <point key="canvasLocation" x="80" y="123"/>
         </scene>
         <!--Category-->
         <scene sceneID="n34-uD-hmj">
@@ -114,7 +114,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gOy-07-6m8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1175" y="123"/>
+            <point key="canvasLocation" x="1168" y="-309"/>
         </scene>
     </scenes>
     <resources>

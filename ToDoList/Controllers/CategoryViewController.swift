@@ -20,6 +20,7 @@ class CategoryViewController: SwipeTableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        print(NSHomeDirectory())
         guard let navBar = navigationController?.navigationBar else {
             fatalError("Navigation controller does not exist")
         }
