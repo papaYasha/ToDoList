@@ -11,8 +11,12 @@ import ChameleonFramework
 
 class CategoryViewController: SwipeTableViewController {
     
+    //MARK: - Properties
+    
     let realm = try! Realm()
     var categories: Results<Category>?
+    
+    //MARK: - Override functions
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,6 +69,8 @@ class CategoryViewController: SwipeTableViewController {
         }
     }
     
+    //MARK: - IBActions
+    
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
         var textField = UITextField()
         
@@ -84,6 +90,8 @@ class CategoryViewController: SwipeTableViewController {
         }
         present(alert, animated: true, completion: nil)
     }
+    
+    //MARK: - Methods
     
     func save(category: Category) {
         do {
