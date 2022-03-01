@@ -20,10 +20,11 @@ class ToDoListViewController: SwipeTableViewController {
             loadItems()
         }
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print(NSHomeDirectory())
-
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -125,7 +126,7 @@ extension ToDoListViewController: UISearchBarDelegate {
         toDoItems = toDoItems?.filter("title CONTAINS[cd] %@", searchBar.text!).sorted(byKeyPath: "dateCreated", ascending: true)
         tableView.reloadData()
     }
-
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchBar.text?.count == 0 {
             loadItems()
