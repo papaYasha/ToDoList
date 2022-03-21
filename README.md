@@ -25,9 +25,3 @@ Delet blocks
 
 <img width="260" alt="Screenshot 2022-03-21 at 14 10 10" src="https://user-images.githubusercontent.com/90447243/159249595-81944474-db87-48ea-8ad8-611580ca7509.png">
 
-
-
-
-
-
-
